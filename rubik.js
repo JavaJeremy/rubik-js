@@ -179,50 +179,6 @@ function Rubik(element, dimensions, background) {
         // drag vector.
         lastCube = cube;
     }
-<<<<<<< Updated upstream
-  });
-
-  /*** Build 27 cubes ***/
-  // Order: right, left, top, bottom, front, back
-  var colours = [0xC41E3A, 0x009E60, 0x0051BA, 0xFF5800, 0xFFD500, 0xFFFFFF];
-      
-  var cubeMaterials = [];
-  for(let i = 0; i < 27; i++){
-    let faceMaterialC = [0x0, 0x0, 0x0, 0x0, 0x0, 0x0];
-    if(i % 3 == 0) faceMaterialC[5] = colours[5];
-    if(i % 3 == 2) faceMaterialC[4] = colours[4];
-    if((i - (i % 3)) / 3 % 3 == 0) faceMaterialC[3] = colours[3];
-    if((i - (i % 3)) / 3 % 3 == 2) faceMaterialC[2] = colours[2];
-    if((((i - (i % 3)) / 3) - (((i - (i % 3)) / 3) % 3)) / 3 == 0) faceMaterialC[1] = colours[1];
-    if((((i - (i % 3)) / 3) - (((i - (i % 3)) / 3) % 3)) / 3 == 2) faceMaterialC[0] = colours[0];
-
-    faceMaterials = faceMaterialC.map(function(c) {
-      return new THREE.MeshLambertMaterial({ color: c , ambient: c });
-    });
-    cubeMaterials.push(new THREE.MeshFaceMaterial(faceMaterials))
-  }
-
-
-  var cubeSize = 3,
-      spacing = 0.5;
-
-  var increment = cubeSize + spacing,
-      maxExtent = (cubeSize * dimensions + spacing * (dimensions - 1)) / 2, 
-      allCubes = [];
-
-  function newCube(x, y, z) {
-    var cubeGeometry = new THREE.CubeGeometry(cubeSize, cubeSize, cubeSize);
-    var cube = new THREE.Mesh(cubeGeometry, cubeMaterials[allCubes.length]);
-    cube.castShadow = true;
-
-    cube.position = new THREE.Vector3(x, y, z);
-    cube.rubikPosition = cube.position.clone();
-
-    cube.on('mousedown', function(e) {
-      onCubeMouseDown(e, cube);
-    });
-=======
->>>>>>> Stashed changes
 
     element.on('mouseup', function (e) {
         if (!isMouseOverCube(e.clientX, e.clientY)) {
@@ -283,14 +239,9 @@ function Rubik(element, dimensions, background) {
         for (var j = 0; j < dimensions; j++) {
             for (var k = 0; k < dimensions; k++) {
 
-<<<<<<< Updated upstream
-  var startNextMove = function() {
-    var nextMove = moveQueue.unshift();
-=======
                 var x = (i - positionOffset) * increment,
                     y = (j - positionOffset) * increment,
                     z = (k - positionOffset) * increment;
->>>>>>> Stashed changes
 
                 newCube(x, y, z);
             }
