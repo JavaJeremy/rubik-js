@@ -1,7 +1,7 @@
 # rubik-js
 A WebGL Rubik's cube. 
 
-[See it in action](http://jwhitfieldseed.github.io/rubik-js/). It requires a WebGL-capable browser.
+[See it in action](http://botic.io/rubik/). It requires a WebGL-capable browser.
 
 Features
 
